@@ -26,16 +26,14 @@
     passengers: 5,
     convertible: false,
     mileage: 102400,
-
-    fuel: 0,  //1️⃣我们添加了一个新属性 fuel ，用于存储汽车的油量。一开始，这辆汽车的油量是空的。
-
+    fuel: 0,
     started: false,
 
     start: function() {
-      if(this.fuel === 0) {  //3️⃣-①：启动发动机，首先检查油位，如果没油，作相应提示。
+      if(this.fuel === 0) { 
         alert("The car is on empty, fill up before starting!");
       }else {
-        this.started = true;  //3️⃣-②：如果有油，就启动发动机。
+        this.started = true;
       }
     },
 
@@ -45,20 +43,20 @@
 
     drive: function() {
       if(this.started) {
-        if(this.fuel > 0) {  //4️⃣-①：在开动汽车前进行检查，确认油箱不是空的。
+        if(this.fuel > 0) {
           alert(this.mark + " " + this.model + " goes zoom zoom!");
-          this.fuel = this.fuel - 1;  //4️⃣-②：如果能够开动汽车，就应该在每次开动时都减少余下油量。
+          this.fuel = this.fuel - 1;
         }else {
           alert("Uh oh, out of fuel.");
-          this.stop();  //4️⃣-③：如果油量耗完了，就熄灭发动机并显示相应提示信息。若要再次发动汽车，你必须加油并启动发动机。
+          this.stop();
         }
       }else {
         alert("You need to start the engine first.")
       }
     },
 
-    addFuel: function(amount) {  //2️⃣我们添加了方法 addFuel 用于给汽车加油。想加多少就加多少，只需要在调用这个方法时指定即可。
-      this.fuel = this.fuel + amount;  //💡这里的 amount 是一个函数的“形参”，因此不需要使用关键字 this 。而 fuel 是一个属性，因此需要使用关键字 this 。
+    addFuel: function(amount) {
+      this.fuel = this.fuel + amount;
     }
 
   };
